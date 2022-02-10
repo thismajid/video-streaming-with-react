@@ -1,3 +1,7 @@
 import http from "./httpService";
 
-export {};
+const getAllVideos = () => {
+  return http.get("/videos");
+};
+
+export { getAllVideos };

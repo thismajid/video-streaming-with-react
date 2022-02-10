@@ -1,19 +1,23 @@
-const Items = () => {
+import { Link } from "react-router-dom";
+
+const Items = ({ item }) => {
+  console.log(item);
+  const poster = "http://localhost:8080/" + item.poster;
   return (
-    <div class="col">
-      <div class="card">
-        <img src="poster" class="card-img-top" alt="name" />
-        <div class="card-body" style="height: 200px">
-          <h5 class="card-title">name</h5>
-          <p class="card-text">synopsis</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Upload Date:</small>
-          <br />
-          <small class="text-muted">
-            <a class="btn btn-success btn-sm mt-2">Watch</a>
-          </small>
-        </div>
+    <div className="card w-25 h-25">
+      <img src={poster} className="card-img-top" alt={item.name} />
+      <div className="card-body" style={{ height: "200px" }}>
+        <h5 className="card-title">{item.name}</h5>
+        <p className="card-text">{item.synopsis}</p>
+      </div>
+      <div className="card-footer">
+        <small className="text-muted">Upload Date: {item.uploadDate}</small>
+        <br />
+        <small className="text-muted">
+          <Link to={`/watch/${item.id}`}>
+            <button className="btn btn-success btn-sm mt-2">Watch</button>
+          </Link>
+        </small>
       </div>
     </div>
   );
