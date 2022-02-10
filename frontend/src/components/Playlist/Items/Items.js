@@ -1,11 +1,14 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Items = ({ item }) => {
-  console.log(item);
   const poster = "http://localhost:8080/" + item.poster;
   return (
     <div className="card w-25 h-25">
-      <img src={poster} className="card-img-top" alt={item.name} />
+      <Link to={`/watch/${item.id}`}>
+        <img src={poster} className="card-img-top" alt={item.name} />
+      </Link>
+
       <div className="card-body" style={{ height: "200px" }}>
         <h5 className="card-title">{item.name}</h5>
         <p className="card-text">{item.synopsis}</p>

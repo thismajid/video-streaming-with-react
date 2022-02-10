@@ -1,27 +1,23 @@
-import { useEffect, useState } from "react";
-import { getAllVideos } from "../../services/requestService";
+import React, { useEffect, useState } from "react";
 import Items from "./Items/Items";
+import axios from "axios";
 
 const Playlist = () => {
   const [items, setItems] = useState(null);
 
-  const getVideos = async () => {
-    try {
-      const { data } = await getAllVideos();
-      setItems(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
-    getVideos();
+    axios
+      .get("http://localhost:8080/api/videos")
+      .then((res) => {
+        setItems(res.data);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (
     <div className="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-around mt-3">
       {items ? (
-        items.map((item, index) => {
+        items.map((item) => {
           return <Items item={item} key={item.id}></Items>;
         })
       ) : (
