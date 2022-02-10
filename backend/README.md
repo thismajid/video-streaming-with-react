@@ -1,6 +1,4 @@
-# Video Streaming
-
-## Stream Uploaded Video Files
+# Video Streaming - Backend
 
 ### For Using This Application Run These Commands
 
@@ -8,7 +6,4 @@
 1. npm install
 2. npm run transpile
 3. npm start
-4. Open Your Browser
-5. Search URL http://localhost:3000
 ```
-
