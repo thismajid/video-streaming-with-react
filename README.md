@@ -1,5 +1,7 @@
 # Video Streaming
 
+## Backend: Node.js/Express.js || Frontend: React
+
 ### For Using This Application Run These Commands
 
 ```bash
